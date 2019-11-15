@@ -1,0 +1,29 @@
+{
+  "name": "beanify-cli",
+  "version": "1.0.0",
+  "description": "beanify beanify-cli",
+  "main": "cli.js",
+  "bin": {
+    "beanify": "cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "beanify",
+    "beanify-cli"
+  ],
+  "author": "beanjs",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commist": "^1.1.0",
+    "generify": "^3.0.3",
+    "help-me": "^1.1.0",
+    "yargs-parser": "^16.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beanjs-framework/beanify-cli.git"
+  }
+}
