@@ -44,11 +44,10 @@ function generate(dir,cb){
             })
 
             pkg.dependencies=Object.assign(pkg.dependencies||{},{
-                "beanify": "^1.1.6",
+                "beanify": "^2.0.3",
                 "beanify-autoload": "^1.0.0",
                 "beanify-env": "^1.0.0",
-                "beanify-env-options": "^1.0.1",
-                "beanify-plugin": "^1.0.6"
+                "beanify-plugin": "^1.0.7"
             })
 
             pkg.devDependencies = Object.assign(pkg.devDependencies || {}, {

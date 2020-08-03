@@ -1,13 +1,14 @@
 const Beanify = require("beanify")
-const beanifyEnvOptions=require("beanify-env-options")
 const beanifyAutoload = require("beanify-autoload")
 const path = require("path")
 
-const beanify = new Beanify(beanifyEnvOptions())
+const beanify = new Beanify({
+    
+})
 
 beanify
     .register(beanifyAutoload, {
-        dir: path.join(__dirname, "previous")
+        dir: path.join(__dirname, "before")
     })
     .register(beanifyAutoload, {
         dir: path.join(__dirname, "plugins")
