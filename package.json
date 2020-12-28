@@ -1,6 +1,6 @@
 {
   "name": "beanify-cli",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "beanify beanify-cli",
   "main": "cli.js",
   "bin": {
