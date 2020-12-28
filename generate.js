@@ -74,7 +74,8 @@ function cli (args) {
           'beanify-autoload': '^3.0.3',
           'beanify-env': '^3.0.2',
           'beanify-plugin': '^3.0.2',
-          'beanify-url': '^3.0.2'
+          'beanify-url': '^3.0.2',
+          'beanify-markdown': '^1.0.0'
         }
 
         pkg.devDependencies = {
