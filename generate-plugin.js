@@ -29,7 +29,7 @@ function cli (args) {
   }
 
   generify(
-    path.join(__dirname, 'templates', 'app'),
+    path.join(__dirname, 'templates', 'plugin'),
     dir,
     {},
     file => {
@@ -59,25 +59,22 @@ function cli (args) {
           return process.exit(1)
         }
 
-        pkg.main = 'app.js'
+        pkg.main = 'index.js'
 
         pkg.scripts = {
-          start: 'node ./app.js',
-          lint: 'npm run lint:standard',
+          test: 'node ./ex.js',
+          lint: 'npm run lint:standard && npm run lint:typescript',
           'lint:fix': 'standard --fix',
-          'lint:standard': 'standard --verbose | snazzy'
+          'lint:standard': 'standard --verbose | snazzy',
+          'lint:typescript': 'eslint -c types/.eslintrc types/**/*.d.ts'
         }
 
-        pkg.dependencies = {
-          beanify: '^3.0.7',
-          'beanify-ajv': '3.0.2',
-          'beanify-autoload': '^3.0.3',
-          'beanify-env': '^3.0.2',
-          'beanify-plugin': '^3.0.2',
-          'beanify-url': '^3.0.2'
-        }
+        pkg.dependencies = {}
 
         pkg.devDependencies = {
+          '@typescript-eslint/eslint-plugin': '^4.9.1',
+          '@typescript-eslint/parser': '^4.9.1',
+          beanify: '^3.0.5',
           eslint: '^7.15.0',
           'eslint-config-standard': '^16.0.2',
           'eslint-plugin-import': '^2.22.1',
@@ -87,9 +84,11 @@ function cli (args) {
           'pino-pretty': '^3.5.0',
           'pre-commit': '^1.2.2',
           snazzy: '^9.0.0',
-          standard: '^16.0.3'
+          standard: '^16.0.3',
+          typescript: '^4.1.3'
         }
 
+        pkg.typings = 'index.d.ts'
         pkg['pre-commit'] = ['lint']
 
         log('debug', 'edited package.json, saving')
@@ -110,8 +109,8 @@ function cli (args) {
           log(
             'debug',
             `run '${chalk.bold(
-              'npm start or yarn run start'
-            )}' to start the application`
+              'npm test or yarn run test'
+            )}' to test the plugin`
           )
 
           execSync('git init')

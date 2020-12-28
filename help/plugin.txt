@@ -1,3 +1,0 @@
-Usage: beanify plugin <FOLDER>/pluginName
-
-in the <FOLDER>. Specify `.` to create <pluginName> file in the current working directory.

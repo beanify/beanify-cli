@@ -1,18 +1,17 @@
 {
   "name": "beanify-cli",
-  "version": "1.0.2",
+  "version": "3.0.0",
   "description": "beanify beanify-cli",
   "main": "cli.js",
   "bin": {
     "beanify": "cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm run lint:standard",
+    "lint:fix": "standard --fix",
+    "lint:standard": "standard --verbose | snazzy"
   },
-  "keywords": [
-    "beanify",
-    "beanify-cli"
-  ],
+  "keywords": ["beanify", "beanify-cli"],
   "author": "beanjs",
   "license": "MIT",
   "dependencies": {
@@ -24,6 +23,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beanjs-framework/beanify-cli.git"
-  }
+    "url": "git+https://github.com/beanify/beanify-cli.git"
+  },
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "pre-commit": "^1.2.2",
+    "snazzy": "^9.0.0",
+    "standard": "^16.0.3"
+  },
+  "pre-commit": ["lint"]
 }

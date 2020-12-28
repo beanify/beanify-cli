@@ -1,23 +1,30 @@
-const Beanify = require("beanify")
-const beanifyAutoload = require("beanify-autoload")
-const path = require("path")
+const Beanify = require('beanify')
+const Autoload = require('beanify-autoload')
 
-const beanify = new Beanify({
-    
-})
+const path = require('path')
+
+const beanify = Beanify({})
 
 beanify
-    .register(beanifyAutoload, {
-        dir: path.join(__dirname, "before")
-    })
-    .register(beanifyAutoload, {
-        dir: path.join(__dirname, "plugins")
-    })
-    .register(beanifyAutoload, {
-        dir: path.join(__dirname, "services")
-    })
-    .ready((err) => {
-        beanify.$log.info("beanify ready.....", err)
-    })
+  .register(Autoload, {
+    dir: path.join(__dirname, 'before'),
+    dirAsScope: false
+  })
+  .register(Autoload, {
+    dir: path.join(__dirname, 'plugins'),
+    dirAsScope: false
+  })
+  .register(Autoload, {
+    dir: path.join(__dirname, 'routes'),
+    dirAsScope: true
+  })
+  .ready(e => {
+    if (e) {
+      beanify.$log.error(e.message)
+    } else {
+      beanify.$log.info('beanify ready...')
+      //   beanify.print()
+    }
+  })
 
 module.exports = beanify

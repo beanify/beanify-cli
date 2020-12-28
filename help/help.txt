@@ -1,8 +1,8 @@
 Beanify command line interface available commands are:
 
-  * generate      generate a new project
-  * plugin        generate a new plugin
-  * version       the current beanify-cli version
-  * help          help about commands
+  * generate        generate a new project
+  * generate-plugin generate a new plugin project
+  * version         the current beanify-cli version
+  * help            help about commands
 
 Launch 'beanify help [command]' to learn more about each command.
