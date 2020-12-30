@@ -71,11 +71,11 @@ function cli (args) {
         pkg.dependencies = {
           beanify: '^3.0.7',
           'beanify-ajv': '3.0.2',
-          'beanify-autoload': '^3.0.3',
+          'beanify-autoload': '^3.0.4',
           'beanify-env': '^3.0.2',
+          'beanify-markdown': '^1.0.0',
           'beanify-plugin': '^3.0.2',
-          'beanify-url': '^3.0.2',
-          'beanify-markdown': '^1.0.0'
+          'beanify-url': '^3.0.2'
         }
 
         pkg.devDependencies = {

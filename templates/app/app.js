@@ -18,13 +18,33 @@ beanify
     dir: path.join(__dirname, 'routes'),
     dirAsScope: true
   })
-  .ready(e => {
+  .ready(async e => {
     if (e) {
       beanify.$log.error(e.message)
     } else {
       beanify.$log.info('beanify ready...')
-      //   beanify.print()
+      beanify.print()
+      const sum = await beanify.inject({
+        url: 'math.add',
+        body: {
+          a: 10,
+          b: 20
+        }
+      })
+      const diff = await beanify.inject({
+        url: 'math.sub',
+        body: {
+          a: 15,
+          b: 10
+        }
+      })
+      const shape = await beanify.inject({
+        url: 'shape.test'
+      })
+      console.log({
+        sum,
+        diff,
+        shape
+      })
     }
   })
-
-module.exports = beanify
